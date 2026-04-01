@@ -128,23 +128,26 @@
             setTimeout(incarcaDate, 300);
         }
 
-    function trimiteWhatsApp() {
-    var azi = document.getElementById('n_azi').innerText;
-    var flota = document.getElementById('o_f').innerText;
-    var gaz = document.getElementById('o_g').innerText;
-    var taxe = document.getElementById('o_o').innerText;
-    var total = document.getElementById('t_1').innerText;
+   function trimiteWhatsApp() {
+    // Luăm valorile cu o metodă sigură
+    var v_azi = document.getElementById('n_azi') ? document.getElementById('n_azi').innerText : "0.00";
+    var v_flota = document.getElementById('o_f') ? document.getElementById('o_f').innerText : "0.00";
+    var v_gaz = document.getElementById('o_g') ? document.getElementById('o_g').innerText : "0.00";
+    var v_taxe = document.getElementById('o_o') ? document.getElementById('o_o').innerText : "0.00";
+    var v_total = document.getElementById('t_1') ? document.getElementById('t_1').innerText : "0.00";
 
-    var mesaj = "*📊 ICĂ APP STORE*%0A" +
-                "----------------------------%0A" +
-                "💰 *Azi:* " + azi + " Lei%0A" +
-                "🏢 *Flota:* " + flota + " Lei%0A" +
-                "⛽ *Gaz:* " + gaz + " Lei%0A" +
-                "🕒 *Taxe:* " + taxe + " Lei%0A" +
-                "----------------------------%0A" +
-                "📈 *TOTAL:* " + total + " Lei";
+    // Construim mesajul (fără caractere speciale care pot bloca browserul)
+    var textMsg = "*📊 RAPORT ICĂ APP STORE*%0A" +
+                  "----------------------------%0A" +
+                  "💰 Profit Azi: " + v_azi + "%0A" +
+                  "🏢 Flota: " + v_flota + " Lei%0A" +
+                  "⛽ Gaz: " + v_gaz + " Lei%0A" +
+                  "🕒 Taxe: " + v_taxe + " Lei%0A" +
+                  "----------------------------%0A" +
+                  "📈 TOTAL LUNA: " + v_total + " Lei";
 
-    window.location.href = "https://wa.me/?text=" + mesaj;
+    // Trimitem către WhatsApp
+    window.location.href = "https://wa.me/?text=" + textMsg;
 }
     </script>
 
