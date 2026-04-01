@@ -137,14 +137,16 @@
     var v_total = document.getElementById('t_1') ? document.getElementById('t_1').innerText : "0.00";
 
     // Construim mesajul (fără caractere speciale care pot bloca browserul)
-    var textMsg = "*📊 RAPORT ICĂ APP STORE*%0A" +
+    var textMsg = "*📊 RAPORT Evidenta RS*%0A" +
                   "----------------------------%0A" +
                   "💰 Profit Azi: " + v_azi + "%0A" +
                   "🏢 Flota: " + v_flota + " Lei%0A" +
                   "⛽ Gaz: " + v_gaz + " Lei%0A" +
                   "🕒 Taxe: " + v_taxe + " Lei%0A" +
                   "----------------------------%0A" +
-                  "📈 TOTAL LUNA: " + v_total + " Lei";
+                  "📈 TOTAL LUNĂ: " + v_total + " Lei%0A" + 
+                  "----------------------------%0A" +
+                  "✍️ *By Ică*"; // Aici e semnătura ta
 
     // Trimitem către WhatsApp
     window.location.href = "https://wa.me/?text=" + textMsg;
