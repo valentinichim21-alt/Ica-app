@@ -30,7 +30,7 @@
         label { font-size: 9px; color: #D4AF37; font-weight: bold; display: block; text-align: left; margin-bottom: 3px; text-transform: uppercase; }
 
         .btn-c { width: 100%; padding: 18px; background: #D4AF37; color: #000; border: none; border-radius: 10px; font-weight: bold; font-size: 18px; margin-top: 15px; cursor: pointer; text-transform: uppercase; }
-        .btn-w { width: 100%; padding: 12px; background: #25D366; color: #fff; border: none; border-radius: 10px; font-weight: bold; margin-top: 10px; display: block; text-decoration: none; font-size: 14px; }
+        .btn-w { width: 100%; padding: 10px; background: #25D366; color: #fff; border: none; border-radius: 10px; font-weight: bold; margin-top: 10px; display: block; text-decoration: none; font-size: 14px; }
     </style>
 </head>
 <body onload="incarcaDate()">
@@ -104,7 +104,7 @@
 
             // Formule taxe
             let flota = brut * 0.10;
-            let gaz = (km / 100) * 11.5 * 4.25;
+            let gaz = (km / 100) * 11.5 * 5.00;
             let taxaOre = ore * 12;
             let netAzi = (brut - flota - gaz - taxaOre + tips).toFixed(2);
 
@@ -131,7 +131,7 @@
         function trimiteWhatsApp() {
             let azi = document.getElementById('n_azi').innerText;
             let total = document.getElementById('t_l').innerText;
-            let mesaj = `RAPORT ICĂ APP STORE%0AAzi: ${azi}%0ATotal Raportat: ${total} Lei`;
+            let mesaj = `RAPORT Evidenta RS%0AAzi: ${azi}%0ATotal Raportat: ${total} Lei`;
             window.location.href = `https://wa.me/?text=${mesaj}`;
         }
     </script>
