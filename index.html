@@ -127,32 +127,30 @@
             // Reîncărcare tabel după o scurtă pauză
             setTimeout(incarcaDate, 300);
         }
-
-        function trimiteWhatsApp() {
-    // 1. Luăm data de azi
+function trimiteWhatsApp() {
     let data = new Date().toLocaleDateString('ro-RO');
 
-    // 2. Colectăm toate cifrele din aplicație
-    let profitAzi = document.getElementById('n_azi').innerText;   // Profit Net Azi
-    let comision = document.getElementById('o_f').innerText;     // Comision Flotă
-    let gpl = document.getElementById('o_g').innerText;          // Cheltuieli Gaz
-    let taxe = document.getElementById('o_o').innerText;         // Taxe Ore
-    let totalLuna = document.getElementById('t_1').innerText;    // TOTAL LUNĂ
+    // Luăm cifrele din pagină
+    let profitAzi = document.getElementById('n_azi').innerText;
+    let comision = document.getElementById('o_f').innerText;
+    let gpl = document.getElementById('o_g').innerText;
+    let taxe = document.getElementById('o_o').innerText;
+    let totalLuna = document.getElementById('t_1').innerText;
 
-    // 3. Construim mesajul frumos, pe linii separate (%0A)
-    let text = `📊 *RAPORT ICĂ APP STORE* - ${data}%0A` +
-               `----------------------------%0A` +
-               `💰 *Profit Net Azi:* ${profitAzi}%0A` +
-               `🏢 Comision Flotă: ${comision} Lei%0A` +
-               `⛽ Cheltuieli Gaz: ${gpl} Lei%0A` +
-               `🕒 Taxe Ore/Alte: ${taxe} Lei%0A` +
-               `----------------------------%0A` +
-               `📈 *TOTAL RAPORTAT LUNĂ:* ${totalLuna} Lei%0A` +
-               `----------------------------%0A` +
-               `✅ Generat automat din aplicație.`;
+    // Construim mesajul (curat, fără caractere care blochează)
+    let text = "*RAPORT ICA APP STORE* - " + data + "%0A" +
+               "----------------------------%0A" +
+               "Profit Net Azi: " + profitAzi + "%0A" +
+               "Comision Flota: " + comision + " Lei%0A" +
+               "Cheltuieli Gaz: " + gpl + " Lei%0A" +
+               "Taxe Ore/Alte: " + taxe + " Lei%0A" +
+               "----------------------------%0A" +
+               "TOTAL LUNA: " + totalLuna + " Lei%0A" +
+               "----------------------------%0A" +
+               "Generat automat din aplicatie.";
 
-    // 4. Trimitem către WhatsApp
-    window.open(`https://wa.me/?text=${text}`, '_blank');
+    // Deschidem WhatsApp
+    window.open("https://wa.me/?text=" + text, "_blank");
 }
     </script>
 
