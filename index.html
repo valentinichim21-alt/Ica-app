@@ -98,23 +98,29 @@
 
         function trimiteWhatsApp() {
     let dataAzi = new Date().toLocaleDateString('ro-RO');
+    
+    // Luăm valorile calculate direct din interfață
     let profitAzi = document.getElementById('n_azi').innerText;
     let flota = document.getElementById('o_f').innerText;
     let gaz = document.getElementById('o_g').innerText;
     let taxeOre = document.getElementById('o_o').innerText;
-    let totalLuna = document.getElementById('t_1').innerText; // Am pus t_1 ca la linia ta 96
+    let tipsCash = document.getElementById('o_t').innerText;
+    let totalLuna = document.getElementById('t_1').innerText;
 
-    let mesaj = `📊 *RAPORT ICĂ APP STORE* - ${dataAzi}%0A` +
+    // Construim mesajul cu rânduri noi (%0A) și scris îngroșat (*)
+    let mesaj = `📊 *RAPORT Ică App Store* - ${dataAzi}%0A` +
                 `----------------------------%0A` +
-                `💰 *Profit Net Azi:* ${profitAzi} Lei%0A` +
-                `🏢 Comision Flotă (10%): ${flota} Lei%0A` +
-                `⛽ Cheltuieli Gaz (GPL): ${gaz} Lei%0A` +
+                `💰 *Profit Net Azi:* ${profitAzi}%0A` +
+                `🏢 Comision Flotă: ${flota} Lei%0A` +
+                `⛽ Cheltuieli Gaz: ${gaz} Lei%0A` +
                 `🕒 Taxe Ore/Alte: ${taxeOre} Lei%0A` +
+                `💵 Tips Cash: ${tipsCash} Lei%0A` +
                 `----------------------------%0A` +
-                `📈 *TOTAL LUNĂ:* ${totalLuna} Lei%0A` +
+                `📈 *TOTAL RAPORTAT LUNĂ:* ${totalLuna} Lei%0A` +
                 `----------------------------%0A` +
                 `✅ Generat automat din aplicație.`;
 
+    // Deschidem WhatsApp cu noul mesaj formatat
     window.open(`https://wa.me/?text=${mesaj}`, '_blank');
 }
 
