@@ -127,30 +127,34 @@
             // Reîncărcare tabel după o scurtă pauză
             setTimeout(incarcaDate, 300);
         }
+
+Valentin Ichim <valentinichim21@gmail.com>
+14:01 (acum 0 minute)
+către eu
+
 function trimiteWhatsApp() {
-    let data = new Date().toLocaleDateString('ro-RO');
+    var d = new Date().toLocaleDateString('ro-RO');
+    
+    // Luam datele cu grija
+    var p = document.getElementById('n_azi').innerText;
+    var f = document.getElementById('o_f').innerText;
+    var g = document.getElementById('o_g').innerText;
+    var t = document.getElementById('o_o').innerText;
+    var l = document.getElementById('t_1').innerText;
 
-    // Luăm valorile calculate din căsuțele de pe ecran
-    let profitAzi = document.getElementById('n_azi').innerText;
-    let flota = document.getElementById('o_f').innerText;
-    let gaz = document.getElementById('o_g').innerText;
-    let taxe = document.getElementById('o_o').innerText;
-    let totalLuna = document.getElementById('t_1').innerText;
+    // Construim mesajul doar cu text si numere, fara caractere speciale
+    var msg = "RAPORT ICA APP STORE - " + d + "%0A" +
+              "----------------------------%0A" +
+              "Profit Net Azi: " + p + " Lei%0A" +
+              "Comision Flota: " + f + " Lei%0A" +
+              "Cheltuieli Gaz: " + g + " Lei%0A" +
+              "Taxe Ore/Alte: " + t + " Lei%0A" +
+              "----------------------------%0A" +
+              "TOTAL LUNA: " + l + " Lei%0A" +
+              "----------------------------%0A" +
+              "Trimis din aplicatie.";
 
-    // Construim mesajul (curat, fără caractere care blochează)
-    let mesaj = "RAPORT ICA APP STORE - " + data + "%0A" +
-                "----------------------------%0A" +
-                "Profit Net Azi: " + profitAzi + " Lei%0A" +
-                "Comision Flota: " + flota + " Lei%0A" +
-                "Cheltuieli Gaz: " + gaz + " Lei%0A" +
-                "Taxe Ore/Alte: " + taxe + " Lei%0A" +
-                "----------------------------%0A" +
-                "TOTAL LUNA: " + totalLuna + " Lei%0A" +
-                "----------------------------%0A" +
-                "Generat automat din aplicatie.";
-
-    // Deschidem WhatsApp
-    window.open("https://wa.me/?text=" + mesaj, "_blank");
+    window.open("https://wa.me/?text=" + msg, "_blank");
 }
     </script>
 
