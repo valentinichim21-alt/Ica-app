@@ -133,8 +133,12 @@
              let flota = document.getElementById('o_f').innerText;
     let gaz = document.getElementById('o_g').innerText;
     let taxe = document.getElementById('o_o').innerText;
-            let total = document.getElementById('t_l').innerText;
-            let mesaj = `RAPORT ICĂ APP STORE%0AAzi: ${azi}%0ATotal Raportat: ${total} Lei`;
+            let mesaj = "📊 *RAPORT ICĂ APP STORE*%0A" +
+                "💰 Profit Net Azi: " + azi + " Lei%0A" +
+                "🏢 Flota (10%): " + flota + " Lei%0A" +
+                "⛽ GPL: " + gaz + " Lei%0A" +
+                "🕒 Taxe: " + taxe + " Lei%0A" +
+                "📈 Total Luna: " + total + " Lei";
             window.location.href = `https://wa.me/?text=${mesaj}`;
         }
     </script>
