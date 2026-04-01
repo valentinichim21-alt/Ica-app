@@ -128,24 +128,23 @@
             setTimeout(incarcaDate, 300);
         }
 
-         function trimiteWhatsApp() {
-    let azi = document.getElementById('n_azi').innerText;
-    let flota = document.getElementById('o_f').innerText;
-    let gaz = document.getElementById('o_g').innerText;
-    let taxe = document.getElementById('o_o').innerText;
-    let total = document.getElementById('t_1').innerText;
+    function trimiteWhatsApp() {
+    var azi = document.getElementById('n_azi').innerText;
+    var flota = document.getElementById('o_f').innerText;
+    var gaz = document.getElementById('o_g').innerText;
+    var taxe = document.getElementById('o_o').innerText;
+    var total = document.getElementById('t_1').innerText;
 
-    // Aici am pus desenele direct în textul mesajului
-    let mesaj = `📊 *ICĂ APP STORE* %0A` +
-                `----------------------------%0A` +
-                `💰 *Azi:* ${azi} Lei%0A` +
-                `🏢 *Flota:* ${flota} Lei%0A` +
-                `⛽ *Gaz:* ${gaz} Lei%0A` +
-                `🕒 *Taxe:* ${taxe} Lei%0A` +
-                `----------------------------%0A` +
-                `📈 *TOTAL:* ${total} Lei`;
-    
-    window.location.href = `https://wa.me/?text=${mesaj}`;
+    var mesaj = "*📊 ICĂ APP STORE*%0A" +
+                "----------------------------%0A" +
+                "💰 *Azi:* " + azi + " Lei%0A" +
+                "🏢 *Flota:* " + flota + " Lei%0A" +
+                "⛽ *Gaz:* " + gaz + " Lei%0A" +
+                "🕒 *Taxe:* " + taxe + " Lei%0A" +
+                "----------------------------%0A" +
+                "📈 *TOTAL:* " + total + " Lei";
+
+    window.location.href = "https://wa.me/?text=" + mesaj;
 }
     </script>
 
