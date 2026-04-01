@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evidenta RS</title>
+    <title>Ică App Store</title>
     <style>
         body { background: #000; color: #fff; font-family: sans-serif; text-align: center; margin: 0; padding: 10px; }
         .rama { background: #111; border: 2px solid #D4AF37; border-radius: 20px; padding: 15px; max-width: 380px; margin: auto; box-shadow: 0 0 15px rgba(212,175,55,0.2); }
@@ -29,14 +29,14 @@
         input { width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #444; color: #fff; border-radius: 8px; box-sizing: border-box; text-align: center; font-size: 16px; color: #D4AF37; font-weight: bold; }
         label { font-size: 9px; color: #D4AF37; font-weight: bold; display: block; text-align: left; margin-bottom: 3px; text-transform: uppercase; }
 
-        .btn-c { width: 100%; padding: 18px; background: #D4AF37; color: #000; border: none; border-radius: 10px; font-weight: bold; font-size: 18px; margin-top: 20px; cursor: pointer; text-transform: uppercase; }
-        .btn-w { width: 95%; padding: 10px; background: #25D366; color: #fff; border: none; border-radius: 10px; font-weight: bold; margin-top: 10px auto; display: block; text-decoration: none; font-size: 14px; }
+        .btn-c { width: 100%; padding: 18px; background: #D4AF37; color: #000; border: none; border-radius: 10px; font-weight: bold; font-size: 18px; margin-top: 15px; cursor: pointer; text-transform: uppercase; }
+        .btn-w { width: 100%; padding: 12px; background: #25D366; color: #fff; border: none; border-radius: 10px; font-weight: bold; margin-top: 10px; display: block; text-decoration: none; font-size: 14px; }
     </style>
 </head>
 <body onload="incarcaDate()">
 
     <div class="rama">
-        <div class="titlu">Evidenta RS</div>
+        <div class="titlu">Ică App Store</div>
 
         <!-- DETALII TAXE CALCULATE -->
         <div class="taxe">
@@ -65,7 +65,7 @@
 
         <!-- INTRODUCERE DATE -->
         <div class="grid">
-            <div><label>Net App</label><input type="number" id="i_b" placeholder="0"></div>
+            <div><label>Brut App</label><input type="number" id="i_b" placeholder="0"></div>
             <div><label>Tips Cash</label><input type="number" id="i_t" placeholder="0"></div>
             <div><label>KM Parcurși</label><input type="number" id="i_k" placeholder="0"></div>
             <div><label>Ore Lucrate</label><input type="number" id="i_o" placeholder="0"></div>
@@ -75,7 +75,7 @@
 
         <a href="#" class="btn-w" onclick="trimiteWhatsApp()">Trimite pe WhatsApp</a>
         
-        <div onclick="if(confirm('Resetezi tot istoricul?')){localStorage.clear();location.reload();}" style="font-size:9px;color:#ffffff;margin-top:20px;cursor:pointer;">RESETEAZĂ DATELE</div>
+        <div onclick="if(confirm('Resetezi tot istoricul?')){localStorage.clear();location.reload();}" style="font-size:8px;color:#333;margin-top:20px;cursor:pointer;">RESETEAZĂ DATELE</div>
     </div>
 
     <script>
@@ -128,33 +128,21 @@
             setTimeout(incarcaDate, 300);
         }
 
-Valentin Ichim <valentinichim21@gmail.com>
-14:01 (acum 0 minute)
-către eu
+        function trimiteWhatsApp() {
+    let azi = document.getElementById('n_azi').innerText;
+    let flota = document.getElementById('o_f').innerText;
+    let gaz = document.getElementById('o_g').innerText;
+    let taxe = document.getElementById('o_o').innerText;
+    let total = document.getElementById('t_1').innerText;
 
-function trimiteWhatsApp() {
-    var d = new Date().toLocaleDateString('ro-RO');
-    
-    // Luam datele cu grija
-    var p = document.getElementById('n_azi').innerText;
-    var f = document.getElementById('o_f').innerText;
-    var g = document.getElementById('o_g').innerText;
-    var t = document.getElementById('o_o').innerText;
-    var l = document.getElementById('t_1').innerText;
+    let mesaj = "📊 *RAPORT ICĂ APP STORE*%0A" +
+                "💰 Profit Net Azi: " + azi + " Lei%0A" +
+                "🏢 Flota (10%): " + flota + " Lei%0A" +
+                "⛽ GPL: " + gaz + " Lei%0A" +
+                "🕒 Taxe: " + taxe + " Lei%0A" +
+                "📈 Total Luna: " + total + " Lei";
 
-    // Construim mesajul doar cu text si numere, fara caractere speciale
-    var msg = "RAPORT ICA APP STORE - " + d + "%0A" +
-              "----------------------------%0A" +
-              "Profit Net Azi: " + p + " Lei%0A" +
-              "Comision Flota: " + f + " Lei%0A" +
-              "Cheltuieli Gaz: " + g + " Lei%0A" +
-              "Taxe Ore/Alte: " + t + " Lei%0A" +
-              "----------------------------%0A" +
-              "TOTAL LUNA: " + l + " Lei%0A" +
-              "----------------------------%0A" +
-              "Trimis din aplicatie.";
-
-    window.open("https://wa.me/?text=" + msg, "_blank");
+    window.location.href = "https://wa.me/?text=" + mesaj;
 }
     </script>
 
